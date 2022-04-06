@@ -21,35 +21,24 @@ const randomPhrase = function getRandomPhraseAsArray (arr) {
     const phraseGenerator = arr[Math.floor((Math.random()*arr.length))];
     const singleArrayLetters = Array.from(phraseGenerator);
     return singleArrayLetters;
-  }
+  };
 
 //   console.log(randomPhrase(phrases));
-
 
 function addPhraseToDisplay (arr) {        
     for (let i = 0; i < randomPhrase(phrases).length; i++) {
         const output = randomPhrase(phrases);
-        return output[i];
-    }
-     const ul = document.querySelector('#phrase ul');
-     const li = document.createElement('li');
-     li.textContent = output[i];
-     ul.append(li);
+
+        const ul = document.querySelector('#phrase ul');
+        const li = document.createElement('li');
+         li.textContent = output[i];
+          ul.append(li);
 
      if (output[i] !== " ") {
-        className = "letter"
-     } else (
-        className = "space"
-     );
+        li.className = "letter";
+     } else {
+        li.className = "space";
+    }
+ }
 };
-
-console.log(addPhraseToDisplay());
-
-/* randomPhrase(phrases); */ //Returns an Array of Characters
-
-
-
-
-
-
 

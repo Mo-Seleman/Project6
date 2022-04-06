@@ -17,21 +17,35 @@ btnReset.addEventListener('click', () => {
     overlay.style.display = 'none';
 });
 
-function getRandomPhraseAsArray (arr) {
+const randomPhrase = function getRandomPhraseAsArray (arr) {
     const phraseGenerator = arr[Math.floor((Math.random()*arr.length))];
-    const singleLetters = Array.from(phraseGenerator);
-    return singleLetters;
+    const singleArrayLetters = Array.from(phraseGenerator);
+    return singleArrayLetters;
   }
-/* console.log(getRandomPhraseAsArray(phrases)); */
+
+//   console.log(randomPhrase(phrases));
+
 
 function addPhraseToDisplay (arr) {        
-    for (let i = 0; i < singleLetters.length; i++) {
-        singleLetters[i];
+    for (let i = 0; i < randomPhrase(phrases).length; i++) {
+        const output = randomPhrase(phrases);
+        return output[i];
     }
+     const ul = document.querySelector('#phrase ul');
+     const li = document.createElement('li');
+     li.textContent = output[i];
+     ul.append(li);
+
+     if (output[i] !== " ") {
+        className = "letter"
+     } else (
+        className = "space"
+     );
 };
 
-// console.log(addPhraseToDisplay(phrases));
+console.log(addPhraseToDisplay());
 
+/* randomPhrase(phrases); */ //Returns an Array of Characters
 
 
 

@@ -1,7 +1,7 @@
 const keyboard = document.querySelector('#qwerty'); 
 const phrase = document.querySelector('#phrase'); 
 const btnReset = document.querySelector('.btn__reset');
-const output = randomPhrase(phrases);
+
 
 let missed = 0;
  
@@ -24,10 +24,11 @@ const randomPhrase = function getRandomPhraseAsArray (arr) {
     return singleArrayLetters;
   };
 
-//   console.log(randomPhrase(phrases));
+const output = randomPhrase(phrases);
 
 function addPhraseToDisplay(arr) {
     for (let i = 0; i < arr.length; i++) {
+      const ul = document.querySelector('#phrase');
       const li = document.createElement('li');
       li.textContent = arr[i];
       ul.append(li);
@@ -38,3 +39,6 @@ function addPhraseToDisplay(arr) {
       }
     }
   };
+  
+  addPhraseToDisplay(output);
+

@@ -1,7 +1,8 @@
 const keyboard = document.querySelector('#qwerty'); 
 const phrase = document.querySelector('#phrase'); 
 const btnReset = document.querySelector('.btn__reset');
-
+const liLetter = document.getElementById('letter');
+const keyboardBtn = document.querySelector('button');
 
 let missed = 0;
  
@@ -28,7 +29,7 @@ const output = randomPhrase(phrases);
 
 function addPhraseToDisplay(arr) {
     for (let i = 0; i < arr.length; i++) {
-      const ul = document.querySelector('#phrase');
+      const ul = document.querySelector('#phrase ul');
       const li = document.createElement('li');
       li.textContent = arr[i];
       ul.append(li);
@@ -39,6 +40,22 @@ function addPhraseToDisplay(arr) {
       }
     }
   };
-  
+
   addPhraseToDisplay(output);
 
+function checkLetter (buttonClicked) {
+   for (let i = 0; i < buttonClicked.length; i++) {
+     if (liLetter[i].includes(buttonClicked)) {
+      liLetter.className = "show";
+      const match = document.getElementById('show');
+      return match;
+    };
+  };
+};
+
+document.addEventListener('click', (e) => {
+  const target = e.target; 
+  if (target === keyboardBtn) {
+    target.className = 'BUTTON'; 
+  };
+});

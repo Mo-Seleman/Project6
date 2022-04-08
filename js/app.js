@@ -55,7 +55,7 @@ function checkLetter (buttonClicked) {
 
 document.addEventListener('click', (e) => {
   const target = e.target; 
-  if (target === keyboardBtn) {
-    target.className = 'BUTTON'; 
+  if (target === 'BUTTON') {
+    target.className = 'chosen'; 
   };
 });

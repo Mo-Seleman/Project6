@@ -65,8 +65,8 @@ const click  = document.addEventListener('click', (e) => {
     missed ++;
     const hearts = document.querySelectorAll("img");
     for (let i = 0; i < hearts.length; i++)
-    loopHearts = hearts[i];
-    loopHearts[1].setAttribute("src", "images/lostHeart.png");  
+    var loopHearts = hearts[i];
+    loopHearts[2].setAttribute("src", "images/lostHeart.png");  
   } 
  } 
 });

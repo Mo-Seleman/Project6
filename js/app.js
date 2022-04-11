@@ -3,6 +3,7 @@ const phrase = document.querySelector('#phrase');
 const btnReset = document.querySelector('.btn__reset');
 const keyboardBtn = document.querySelector('button');
 const chosen = document.querySelector('.chosen');
+const hearts = document.querySelectorAll("img");
 
 let missed = 0;
  
@@ -48,9 +49,8 @@ function checkLetter (buttonClicked) {
   let match = null;
   for (let i = 0; i < liLetter.length; i++) {
     if(liLetter[i].textContent.toLowerCase() === buttonClicked.textContent){
-      liLetter[i].className = 'show';
-      match = true;
-      /* If they match, store the button text in the match variable??? */
+      liLetter[i].classList.add("show");
+      match = buttonClicked.textContent;
     }
   } return match;
 };
@@ -60,8 +60,11 @@ const click  = document.addEventListener('click', (e) => {
   if (target.tagName === 'BUTTON') {
     target.className = 'chosen';
     target.setAttribute("disabled", "");
-  }
+    const letterFound = checkLetter(target);
+    if (letterFound === null) {
+    missed ++;
+    document.querySelector("img").setAttribute("src", "images/lostHeart.png");  
+  } 
+} 
 });
 
-const letterFound = checkLetter(click);
-console.log(letterFound);

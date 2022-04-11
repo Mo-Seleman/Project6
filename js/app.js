@@ -63,8 +63,11 @@ const click  = document.addEventListener('click', (e) => {
     const letterFound = checkLetter(target);
     if (letterFound === null) {
     missed ++;
-    document.querySelector("img").setAttribute("src", "images/lostHeart.png");  
+    const hearts = document.querySelectorAll("img");
+    for (let i = 0; i < hearts.length; i++)
+    loopHearts = hearts[i];
+    loopHearts[1].setAttribute("src", "images/lostHeart.png");  
   } 
-} 
+ } 
 });
 

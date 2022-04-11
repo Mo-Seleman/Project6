@@ -1,8 +1,8 @@
 const keyboard = document.querySelector('#qwerty'); 
 const phrase = document.querySelector('#phrase'); 
 const btnReset = document.querySelector('.btn__reset');
-const liLetter = document.getElementById('letter');
 const keyboardBtn = document.querySelector('button');
+const chosen = document.querySelector('.chosen');
 
 let missed = 0;
  
@@ -37,25 +37,31 @@ function addPhraseToDisplay(arr) {
         li.className = "letter";
       } else {
         li.className = "space";
-      }
-    }
-  };
-
-  addPhraseToDisplay(output);
-
-function checkLetter (buttonClicked) {
-   for (let i = 0; i < buttonClicked.length; i++) {
-     if (liLetter[i].includes(buttonClicked)) {
-      liLetter.className = "show";
-      const match = document.getElementById('show');
-      return match;
+      };
     };
   };
+
+addPhraseToDisplay(output);
+
+function checkLetter (buttonClicked) {
+  const liLetter = document.querySelectorAll('.letter');
+  let match = null;
+  for (let i = 0; i < liLetter.length; i++) {
+    if(liLetter[i].textContent.toLowerCase() === buttonClicked.textContent){
+      liLetter[i].className = 'show';
+      match = true;
+      /* If they match, store the button text in the match variable??? */
+    }
+  } return match;
 };
 
-document.addEventListener('click', (e) => {
+const click  = document.addEventListener('click', (e) => {
   const target = e.target; 
-  if (target === 'BUTTON') {
-    target.className = 'chosen'; 
-  };
+  if (target.tagName === 'BUTTON') {
+    target.className = 'chosen';
+    target.setAttribute("disabled", "");
+  }
 });
+
+const letterFound = checkLetter(click);
+console.log(letterFound);

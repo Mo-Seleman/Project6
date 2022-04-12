@@ -5,6 +5,7 @@ const keyboardBtn = document.querySelector('button');
 const chosen = document.querySelector('.chosen');
 const hearts = document.querySelectorAll("img");
 const overlay = document.querySelector('#overlay');
+const title = document.querySelector('.title');
 
 let missed = 0;
  
@@ -51,7 +52,7 @@ function checkLetter (buttonClicked) {
   let match = null;
   for (let i = 0; i < liLetter.length; i++) {
     if(liLetter[i].textContent.toLowerCase() === buttonClicked.textContent.toLowerCase()){
-      liLetter[i].classList.add("show"); /*Where Show Is Added*/
+      liLetter[i].classList.add("show");
       match = buttonClicked.textContent;
     }
   } return match
@@ -69,19 +70,20 @@ const click  = document.addEventListener('click', (e) => {
     hearts[missed].setAttribute("src", "images/lostHeart.png");  
     missed ++;
   }
- } /* checkWin(); */
+ } checkWin();
 })
-
-const liLetter = document.querySelectorAll('.letter');
-const show = document.querySelectorAll('.show');
-
-console.log(liLetter.length); /*Getting Length of liLetter*/
-console.log(show.length)/*Not Working-Consider How It Wont Register Until Triggered*/
 
 /*Checking For Win*/
 function checkWin(){
+  const liLetter = document.querySelectorAll('.letter');
+  const show = document.querySelectorAll('.show');
   if (liLetter.length === show.length) {
-    overlay.classList.add("win");
-  }
-};
-
+      overlay.style.display = 'flex';
+      overlay.className = "win";
+      title.textContent = "You Won! Well Done!";
+    } else if (missed > 4){
+      overlay.style.display = 'flex';
+      overlay.className = "lose";
+      title.textContent = "Game Over";
+    }
+  };

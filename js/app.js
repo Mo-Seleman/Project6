@@ -79,6 +79,15 @@ const click = document.addEventListener("click", (e) => {
   checkWin();
 });
 
+
+/*Reload Function*/
+function reloadTheGame() {
+  const reload = document.querySelector(".btn__reset");
+  reload.addEventListener("click", () => {
+    location.reload();
+  });
+}
+
 /*Checking For Win*/
 function checkWin() {
   const liLetter = document.querySelectorAll(".letter");
@@ -90,17 +99,14 @@ function checkWin() {
     overlay.className = "win";
     title.textContent = "You Won! Well Done!";
     ul.style.display = "none";
-    btnReset.textContent = "Reset Game"
+    btnReset.textContent = "Reset Game";
+    reloadTheGame();
   } else if (missed > 4) {
     overlay.style.display = "flex";
     overlay.className = "lose";
     title.textContent = "Game Over";
     ul.style.display = "none";
-    btnReset.textContent = "Reset Game"
+    btnReset.textContent = "Reset Game";
+    reloadTheGame();
   }
-}
-
-/*Reload Function*/
-function reload() {
-  location.reload();
 }

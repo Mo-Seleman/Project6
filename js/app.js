@@ -84,17 +84,23 @@ function checkWin() {
   const liLetter = document.querySelectorAll(".letter");
   const show = document.querySelectorAll(".show");
   const ul = document.getElementById("unorderedList");
+  const btnReset = document.querySelector(".btn__reset");
   if (liLetter.length === show.length) {
     overlay.style.display = "flex";
     overlay.className = "win";
     title.textContent = "You Won! Well Done!";
     ul.style.display = "none";
+    btnReset.textContent = "Reset Game"
   } else if (missed > 4) {
     overlay.style.display = "flex";
     overlay.className = "lose";
     title.textContent = "Game Over";
     ul.style.display = "none";
+    btnReset.textContent = "Reset Game"
   }
-};
+}
 
-
+/*Reload Function*/
+function reload() {
+  location.reload();
+}

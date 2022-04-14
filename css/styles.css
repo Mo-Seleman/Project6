@@ -161,3 +161,8 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+.transition {
+transform: rotate(360deg) scale(1);
+transition: transform 1s;
+}
